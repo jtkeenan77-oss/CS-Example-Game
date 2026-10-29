@@ -1,0 +1,22 @@
+package game;
+
+public class Tool extends Item {
+	private boolean usedTool;
+		public Tool() {
+			super("tool",false);
+			usedTool = false;
+		}
+		@Override
+		public void use() {
+			if (Game.currentRoom.getName().equals("Bedroom")) {
+				if (usedTool) {
+					Game.print("You already opened the attic door!");
+				} else {
+					Game.currentRoom.getExit(4).setLock(false);
+					usedTool = true;
+					Game.print("Using the tool, you are able to open the door");
+				}
+			} else
+				Game.print("You don't see any way to use the tool…");
+		}
+}
