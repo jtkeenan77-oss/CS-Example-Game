@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 public class Game {
 
     public static Room currentRoom = World.buildWorld();
-    private static ArrayList<Item> inventory = new ArrayList<>();
+    public static ArrayList<Item> inventory = new ArrayList<>();
     public static HashMap<String, String> descriptions = new HashMap<>();
     private static StringBuilder response = new StringBuilder();
 
@@ -118,6 +118,46 @@ public class Game {
             		break;
             	response.append("You do not have a "+command);
             	break;
+            	
+            case "read":
+            	boolean loooped=false;
+            	if(thing.length<2) {
+            		Game.print("read what? ");
+            	}
+            	else {
+            		for(int i=0; i<inventory.size();i++) {
+            			if(inventory.get(i).getName().equals(thing[1])) {
+            				inventory.get(i).read();
+            				looped=true;
+            			}
+            		}
+            		if(loooped==false) {
+            			Game.print("There is no "+thing[1]);
+            		}
+            		
+            	}
+            	break;
+            	
+            case "open":
+            	if(thing.length<2)
+            		Game.print("open what? ");
+            	else {
+            		if(currentRoom.getItem(thing[1])!=null) {
+            			currentRoom.getItem(thing[1]).open();
+            		}
+            	}
+            	break;
+            	
+            case "close":
+            	if(thing.length<2)
+            		Game.print("close what? ");
+            	else {
+            		if(currentRoom.getItem(thing[1])!=null) {
+            			currentRoom.getItem(thing[1]).close();
+            		}
+            	}
+            	break;
+            
 
             case "exit":
                 response.append("Farewell");

@@ -22,6 +22,7 @@ public class World {
 		Item Knife = new Item("knife",false);
 		Item couch = new Item("couch",true);
 		Item bed=new Item("bed",true);
+		Item safe=new Safe();
 		
 		bedroom.addExit(attic, 4);
 		bedroom.addExit(livingRoom, 3); 
@@ -42,6 +43,7 @@ public class World {
 		kitchen.addItem(Knife);
 		kitchen.addItem(flashLight);
 		kitchen.addItem(orb);
+		attic.addItem(safe);
 		
 		office.setLock(true);
 		attic.setLock(true);
