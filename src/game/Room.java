@@ -9,12 +9,17 @@ public class Room implements Serializable{
 	private boolean locked;
 	private Room[] arr;
 	private HashMap<String,Item> items=new HashMap<>();
+	private NPC npc;
 	
 	public Room(String n) {
 		locked=false;
 		name=n;
 		arr= new Room[6];
 		World.rooms.add(this);
+	}
+	
+	public void addNPC(NPC n) {
+		npc=n;
 	}
 	
 	public boolean isLocked() {
@@ -59,6 +64,10 @@ public class Room implements Serializable{
 	
 	public void removeItem(String name) {
 		items.remove(name);
+	}
+	
+	public NPC getNPC() {
+		return npc;
 	}
 	
 	public String toString() {

@@ -157,6 +157,27 @@ public class Game {
             		}
             	}
             	break;
+            	
+            case "talk":
+            	if(thing.length<2)
+            		Game.print("talk to who? ");
+            	else if(thing.length==2) {
+            		Game.print("Talk to what?");
+            	}
+            	else if(currentRoom.getNPC()==null) {
+            		Game.print("There are no people here");
+            	}
+            	else {
+            		if(currentRoom.getNPC()!=null) {
+            			if(currentRoom.getNPC().getName().equals(thing[2])) {
+            				currentRoom.getNPC().talk();
+            			}
+            			else {
+            				Game.print("There is nobody here named that");
+            			}
+            		}
+            	}
+            	break;
             
 
             case "exit":

@@ -45,6 +45,10 @@ public class World {
 		kitchen.addItem(orb);
 		attic.addItem(safe);
 		
+		NPC gunther = new Gunther();
+		
+		livingRoom.addNPC(gunther);
+		
 		office.setLock(true);
 		attic.setLock(true);
 		garage.setLock(true);
