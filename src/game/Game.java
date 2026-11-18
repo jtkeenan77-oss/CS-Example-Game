@@ -105,16 +105,16 @@ public class Game {
             	break;
             	
             case "use":
-            	boolean looped=false;
+            	boolean found=false;
             	command=thing[1];
             	for(Item i: inventory) {
             		if(command.equals(i.getName())) {
-            			looped=true;
+            			found=true;
             			i.use();
             			break;
             		}
             	}
-            	if(looped=true)
+            	if(found==true)
             		break;
             	response.append("You do not have a "+command);
             	break;
@@ -128,7 +128,7 @@ public class Game {
             		for(int i=0; i<inventory.size();i++) {
             			if(inventory.get(i).getName().equals(thing[1])) {
             				inventory.get(i).read();
-            				looped=true;
+            				loooped=true;
             			}
             		}
             		if(loooped==false) {

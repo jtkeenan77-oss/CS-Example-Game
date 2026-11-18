@@ -12,7 +12,7 @@ public class OfficeKey extends Item {
 				if (usedTool) {
 					Game.print("You already opened the office door");
 				} else {
-					Game.currentRoom.getExit(4).setLock(false);
+					Game.currentRoom.getExit(1).setLock(false);
 					usedTool = true;
 					Game.print("Using the key, you are able to open the door");
 				}
