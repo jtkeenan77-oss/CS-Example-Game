@@ -8,6 +8,7 @@ public class NPC {
 	
 	private String name;
 	
+	
 	public NPC(String n) {
 		name=n;
 	}
@@ -29,12 +30,22 @@ public class NPC {
 	}
 	
 	public int getResponse(String[] responses) {
+		String res="";
 		for(int i=1; i<=responses.length;i++) {
 			Game.print("\n"+i+". "+responses[i-1]);
+			res+=("\n"+i+". "+responses[i-1]);
 		}
-		String choice= JOptionPane.showInputDialog(null,"Choose an option");
-		int newChoice=Integer.parseInt(choice);
-		return newChoice;
+		String choice= JOptionPane.showInputDialog(null,"Choose an option"+res);
+		Game.print("\n> "+choice);
+		int test=0;
+			try {
+				test=Integer.parseInt(choice);
+			} catch (NumberFormatException e) {
+				return 0;
+			}
+		if(test>3 || test<0)
+			return 0;
+		return test;
 	}
 
 }
