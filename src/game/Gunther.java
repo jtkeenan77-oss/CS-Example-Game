@@ -160,7 +160,10 @@ public class Gunther extends NPC {
 			}
 		}
 		
-		
+		@Override
+		public void give(Item i) {
+			Game.print("I don't want that");
+		}
 		
 		
 }

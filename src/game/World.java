@@ -23,6 +23,7 @@ public class World {
 		Item couch = new Item("couch",true);
 		Item bed=new Item("bed",true);
 		Item safe=new Safe();
+		Item money=new Money();
 		
 		bedroom.addExit(attic, 4);
 		bedroom.addExit(livingRoom, 3); 
@@ -44,6 +45,7 @@ public class World {
 		kitchen.addItem(flashLight);
 		kitchen.addItem(orb);
 		attic.addItem(safe);
+		bedroom.addItem(money);
 		
 		NPC gunther = new Gunther();
 		

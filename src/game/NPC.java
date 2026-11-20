@@ -48,4 +48,8 @@ public class NPC {
 		return test;
 	}
 
+	public void give(Item i) {
+		Game.print(name+" does not want the "+i.getName());
+	}
+	
 }
