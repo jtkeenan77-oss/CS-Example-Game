@@ -4,7 +4,7 @@ public class Brother extends NPC{
 	private int convoNumber=0;
 	
 	public Brother() {
-		super("Brother");
+		super("brother");
 	}
 	
 	
@@ -39,23 +39,8 @@ public class Brother extends NPC{
 		case 1:
 			convoOne();
 			break;
-		
-			
+
 		case 2:
-			for(Item i:Game.inventory) {
-				if(i.getName().equals("money")) {
-					say("The password is 4321");
-					//need to add password item
-					convoNumber=3;
-					break;
-				}
-				say("You don't got my money man");
-				convoNumber=1;
-				break;
-				
-				
-			}
-		case 3:
 			say("I already gave you the password");
 			break;
 		}
@@ -76,7 +61,7 @@ public class Brother extends NPC{
 				break;
 			case 2:
 				say("then hand it over");
-				convoNumber=2;
+				convoNumber=0;
 				break;
 			case 3:
 				say("Then go away");
@@ -91,6 +76,19 @@ public class Brother extends NPC{
 		
 		
 		
+	}
+	
+	@Override
+	public void give(Item i) {
+		if(i.getName().equals("money")) {
+			Game.print("BROTHER\nThe password is 1234");
+			Game.inventory.add(new Item("combonation",false));
+			Game.inventory.remove(i);
+			convoNumber=2;
+		}
+		else {
+			Game.print("BROTHER\nThats not what I want");
+		}
 	}
 	
 	

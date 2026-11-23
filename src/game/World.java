@@ -31,7 +31,7 @@ public class World {
 		livingRoom.addExit(office, 1);
 		livingRoom.addExit(bedroom, 2);
 		office.addExit(livingRoom, 0);
-		attic.addExit(bedroom, 3);
+		attic.addExit(bedroom, 5);
 		kitchen.addExit(livingRoom, 1);
 		kitchen.addExit(garage,3);
 		garage.addExit(kitchen, 2);
@@ -48,7 +48,9 @@ public class World {
 		bedroom.addItem(money);
 		
 		NPC gunther = new Gunther();
+		NPC Brother = new Brother();
 		
+		kitchen.addNPC(Brother);
 		livingRoom.addNPC(gunther);
 		
 		office.setLock(true);

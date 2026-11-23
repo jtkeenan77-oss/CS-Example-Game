@@ -17,7 +17,7 @@ public class NoteBook extends Item{
 		else if(read==false) {
 			read=true;
 			Game.print("Written in the notebook is the password to the computer in the office");
-			Item password = new Item("Password",false);
+			Item password = new Password();
 			Game.inventory.add(password);
 		}
 		else {

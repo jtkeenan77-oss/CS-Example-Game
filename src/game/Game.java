@@ -179,6 +179,48 @@ public class Game {
             	}
             	break;
             
+            case "give":
+            	if(thing.length==1) {
+            		Game.print("Give what to who?");
+            	}
+            	else if(thing.length==2) {
+            		Game.print("Who are you giving to?");
+            	}
+            	else if(thing.length==3) {
+            		Game.print("Give to Who?");
+            	}
+            	else if(thing.length>=4) {
+            		boolean given=false;
+            		Iterator iter=inventory.iterator();
+            		String name=thing[3];
+            		String Iname=thing[1];
+            		if(inventory.size()==0) {
+            			Game.print("You do not have any items");
+            			break;
+            		}
+            		if(currentRoom.getNPC()==null) {
+            			Game.print("There are no people in this room");
+            			break;
+            		}
+            		else if (!currentRoom.getNPC().getName().equals(name)){
+            			Game.print("That person is not in this room");
+            			break;
+            		}
+            		while(iter.hasNext()) {
+            			Item i = (Item) iter.next();
+            			if(i.getName().equals(Iname)) {
+            				currentRoom.getNPC().give(i);
+            				given=true;
+            				break;
+            			}
+            		}
+            		if(given==true) {
+            			break;
+            		}
+            		Game.print("You do not have any Items like that");
+            	}
+            	break;
+            
 
             case "exit":
                 response.append("Farewell");

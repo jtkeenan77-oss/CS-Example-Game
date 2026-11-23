@@ -34,7 +34,7 @@ public class Room implements Serializable{
 		return name;
 	}
 	
-	public String getDescription() {
+	public String getDescriptInameion() {
 		return Game.descriptions.get(name);
 	}
 	

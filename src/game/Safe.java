@@ -2,7 +2,7 @@ package game;
 
 public class Safe extends Item{
 	
-	
+	private boolean locked=true;
 	private boolean firstOpen;
 	private boolean opened;
 	
@@ -14,6 +14,18 @@ public class Safe extends Item{
 	
 	@Override
 	public void open() {
+		if(locked == true) {
+			for(Item i: Game.inventory) {
+				if(i.getName().equals("combonation")) {
+					locked=false;
+					Game.print("You unlock the safe");
+					return;
+				}
+				
+			}
+			Game.print("The safe is locked");
+			return;
+		}
 		if(opened==false) {
 			Game.print("You open the safe\n");
 			opened=true;
